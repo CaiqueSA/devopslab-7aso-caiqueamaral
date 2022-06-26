@@ -52,7 +52,7 @@ jobs:
           cat key.json | docker login -u _json_key --password-stdin https://us-central1-docker.pkg.dev/
       
       - name: Build Image & Push
-        enc:
+        env:
           ARTIFACT_REGISTRY: ${{secrets.ARTIFACT_REGISTRY}}
           run: |
             docker build -t ${{secrets.ARTIFACT_REGISTRY}}/myapp:latest
